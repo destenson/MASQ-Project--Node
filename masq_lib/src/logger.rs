@@ -141,9 +141,9 @@ impl Logger {
     where
         F: FnOnce() -> String,
     {
-        if UI_MESSAGE_LOG_LEVEL.le(&level) {
-            self.transmit(log_function())
-        }
+        // if UI_MESSAGE_LOG_LEVEL.le(&level) {
+        //     self.transmit(log_function())
+        // }
         if !self.level_enabled(level) {
             return;
         }

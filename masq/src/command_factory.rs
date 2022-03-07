@@ -8,6 +8,7 @@ use crate::commands::configuration_command::ConfigurationCommand;
 use crate::commands::crash_command::CrashCommand;
 use crate::commands::descriptor_command::DescriptorCommand;
 use crate::commands::generate_wallets_command::GenerateWalletsCommand;
+use crate::commands::log_change_level_command::LogChangeLevelCommand;
 use crate::commands::recover_wallets_command::RecoverWalletsCommand;
 use crate::commands::set_configuration_command::SetConfigurationCommand;
 use crate::commands::setup_command::SetupCommand;
@@ -51,6 +52,10 @@ impl CommandFactory for CommandFactoryReal {
             "generate-wallets" => match GenerateWalletsCommand::new(pieces) {
                 Ok(command) => Box::new(command),
                 Err(msg) => return Err(CommandSyntax(msg)),
+            },
+            "log-change-level" => match LogChangeLevelCommand::new(pieces) {
+                Ok(command) => Box::new(command),
+                Err(msg) => unimplemented!("{}", msg),
             },
             "recover-wallets" => match RecoverWalletsCommand::new(pieces) {
                 Ok(command) => Box::new(command),

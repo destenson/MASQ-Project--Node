@@ -8,6 +8,7 @@ use crate::commands::configuration_command::configuration_subcommand;
 use crate::commands::crash_command::crash_subcommand;
 use crate::commands::descriptor_command::descriptor_subcommand;
 use crate::commands::generate_wallets_command::generate_wallets_subcommand;
+use crate::commands::log_change_level_command::log_change_level_subcommand;
 use crate::commands::recover_wallets_command::recover_wallets_subcommand;
 use crate::commands::set_configuration_command::set_configuration_subcommand;
 use crate::commands::setup_command::setup_subcommand;
@@ -58,6 +59,7 @@ pub fn app() -> App<'static, 'static> {
         .subcommand(configuration_subcommand())
         .subcommand(descriptor_subcommand())
         .subcommand(generate_wallets_subcommand())
+        .subcommand(log_change_level_subcommand())
         .subcommand(recover_wallets_subcommand())
         .subcommand(set_configuration_subcommand())
         .subcommand(set_password_subcommand())

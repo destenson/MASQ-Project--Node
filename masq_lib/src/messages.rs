@@ -594,10 +594,27 @@ pub struct UiGenerateWalletsResponse {
 conversation_message!(UiGenerateWalletsResponse, "generateWallets");
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+pub struct UiLogChangeLevelRequest {
+    pub log_level: String,
+}
+conversation_message!(UiLogChangeLevelRequest, "logChangeLevel");
+
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+pub struct UiLogChangeLevelResponse {}
+conversation_message!(UiLogChangeLevelResponse, "logChangeLevel");
+
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct UiLogBroadcast {
     pub msg: String,
+    // TODO: Add Level
 }
 fire_and_forget_message!(UiLogBroadcast, "logBroadcast");
+
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+pub struct UiLogLevelChanged {
+    pub log_level: String,
+}
+fire_and_forget_message!(UiLogLevelChanged, "logLevelChanged");
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct UiNewPasswordBroadcast {}
